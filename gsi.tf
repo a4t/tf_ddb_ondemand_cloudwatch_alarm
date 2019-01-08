@@ -1,7 +1,7 @@
 resource "aws_cloudwatch_metric_alarm" "over_gsi_read_capacity" {
   count             = "${length(var.gsi)}"
-  alarm_name        = "dynamodb-${var.table_name}-gsi-${lookup(var.gsi[count.index], "name")}-over-consumed-read-capacity-units-${lookup(var.gsi[count.index], "read_threshold")}"
-  alarm_description = "dynamodb ${var.table_name} over consumed read capacity units ${var.read_threshold}"
+  alarm_name        = "${var.alarm_prefix}-${var.table_name}-gsi-${lookup(var.gsi[count.index], "name")}-over-consumed-read-capacity-units-${lookup(var.gsi[count.index], "read_threshold")}"
+  alarm_description = "${var.alarm_prefix} ${var.table_name} over consumed read capacity units ${var.read_threshold}"
 
   dimensions = {
     GlobalSecondaryIndexName = "${lookup(var.gsi[count.index], "name")}"
@@ -22,8 +22,8 @@ resource "aws_cloudwatch_metric_alarm" "over_gsi_read_capacity" {
 
 resource "aws_cloudwatch_metric_alarm" "over_gsi_write_capacity" {
   count             = "${length(var.gsi)}"
-  alarm_name        = "dynamodb-${var.table_name}-gsi-${lookup(var.gsi[count.index], "name")}-over-consumed-write-capacity-units-${lookup(var.gsi[count.index], "write_threshold")}"
-  alarm_description = "dynamodb ${var.table_name} over consumed write capacity units ${var.write_threshold}"
+  alarm_name        = "${var.alarm_prefix}-${var.table_name}-gsi-${lookup(var.gsi[count.index], "name")}-over-consumed-write-capacity-units-${lookup(var.gsi[count.index], "write_threshold")}"
+  alarm_description = "${var.alarm_prefix} ${var.table_name} over consumed write capacity units ${var.write_threshold}"
 
   dimensions = {
     GlobalSecondaryIndexName = "${lookup(var.gsi[count.index], "name")}"

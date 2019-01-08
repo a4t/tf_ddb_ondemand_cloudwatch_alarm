@@ -1,6 +1,6 @@
 resource "aws_cloudwatch_metric_alarm" "over_read_capacity" {
-  alarm_name        = "dynamodb-${var.table_name}-over-consumed-read-capacity-units-${var.read_threshold}"
-  alarm_description = "dynamodb ${var.table_name} over consumed read capacity units ${var.read_threshold}"
+  alarm_name        = "${var.alarm_prefix}-${var.table_name}-over-consumed-read-capacity-units-${var.read_threshold}"
+  alarm_description = "${var.alarm_prefix} ${var.table_name} over consumed read capacity units ${var.read_threshold}"
 
   dimensions = {
     TableName = "${var.table_name}"
@@ -19,8 +19,8 @@ resource "aws_cloudwatch_metric_alarm" "over_read_capacity" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "over_write_capacity" {
-  alarm_name        = "dynamodb-${var.table_name}-over-consumed-write-capacity-units-${var.write_threshold}"
-  alarm_description = "dynamodb ${var.table_name} over consumed write capacity units ${var.write_threshold}"
+  alarm_name        = "${var.alarm_prefix}-${var.table_name}-over-consumed-write-capacity-units-${var.write_threshold}"
+  alarm_description = "${var.alarm_prefix} ${var.table_name} over consumed write capacity units ${var.write_threshold}"
 
   dimensions = {
     TableName = "${var.table_name}"

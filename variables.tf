@@ -1,6 +1,10 @@
 # Common
 variable "table_name" {}
 
+variable "alarm_prefix" {
+  default = "dynamodb"
+}
+
 variable "alarm_actions" {
   default = []
 }
