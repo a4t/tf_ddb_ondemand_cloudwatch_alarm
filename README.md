@@ -17,6 +17,7 @@ This module Create CloudWatch Alarm for DynamoDB on-demand.
 - `write_threshold` - Write Capacity Units threshold value (Integer)
 
 ### Optional
+- `alarm_prefix` - CloudWatch alarm prefix name (String)
 - `alarm_actions` - alarm actions arn (List)
 - `read_evaluation_periods` - Read evaluation periods (Integer)
 - `read_period` - Read period (Integer)
@@ -57,6 +58,7 @@ module ddb_ondemand_cloudwatch_alarm {
   read_threshold  = 60
   write_threshold = 60
 
+  alarm_prefix = "dynamodb-alarm"
   alarm_actions = [
     "arn:aws:sns:ap-northeast-1:123456789012:abcdefghij"
   ]
