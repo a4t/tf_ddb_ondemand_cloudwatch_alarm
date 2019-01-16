@@ -10,8 +10,8 @@ resource "aws_cloudwatch_metric_alarm" "over_gsi_read_capacity" {
 
   metric_name         = "ConsumedReadCapacityUnits"
   namespace           = "AWS/DynamoDB"
-  period              = "${lookup(var.gsi[count.index], "read_period")}"
-  evaluation_periods  = "${lookup(var.gsi[count.index], "read_evaluation_periods")}"
+  period              = "${lookup(var.gsi[count.index], "read_period", 60)}"
+  evaluation_periods  = "${lookup(var.gsi[count.index], "read_evaluation_periods", 1)}"
   comparison_operator = "GreaterThanOrEqualToThreshold"
 
   statistic = "Sum"
@@ -32,8 +32,8 @@ resource "aws_cloudwatch_metric_alarm" "over_gsi_write_capacity" {
 
   metric_name         = "ConsumedWriteCapacityUnits"
   namespace           = "AWS/DynamoDB"
-  period              = "${lookup(var.gsi[count.index], "write_period")}"
-  evaluation_periods  = "${lookup(var.gsi[count.index], "write_evaluation_periods")}"
+  period              = "${lookup(var.gsi[count.index], "write_period", 60)}"
+  evaluation_periods  = "${lookup(var.gsi[count.index], "write_evaluation_periods", 1)}"
   comparison_operator = "GreaterThanOrEqualToThreshold"
 
   statistic = "Sum"

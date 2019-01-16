@@ -29,12 +29,14 @@ This module Create CloudWatch Alarm for DynamoDB on-demand.
 #### Required
 
 - `name` - Global Secondary Index Name(String)
+- `read_threshold` - GSI Read Capacity Units threshold value (Integer)
+- `write_threshold` - GSI Write Capacity Units threshold value (Integer)
+
+### Optional
 - `read_period` - GSI Read period (Integer)
 - `read_evaluation_periods` - GSI Read evaluation periods (Integer)
-- `read_threshold` - GSI Read Capacity Units threshold value (Integer)
 - `write_period` - GSI Write period(Integer)
 - `write_evaluation_periods` - GSI Write evaluation periods (Integer)
-- `write_threshold` - GSI Write Capacity Units threshold value (Integer)
 
 ## Usage
 
