@@ -20,6 +20,10 @@ variable "read_period" {
   default = 60
 }
 
+variable "read_datapoints_to_alarm" {
+  default = 0
+}
+
 # Write
 variable "write_threshold" {}
 
@@ -29,6 +33,10 @@ variable "write_evaluation_periods" {
 
 variable "write_period" {
   default = 60
+}
+
+variable "write_datapoints_to_alarm" {
+  default = 0
 }
 
 # GSI

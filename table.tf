@@ -10,6 +10,7 @@ resource "aws_cloudwatch_metric_alarm" "over_read_capacity" {
   namespace           = "AWS/DynamoDB"
   period              = "${var.read_period}"
   evaluation_periods  = "${var.read_evaluation_periods}"
+  datapoints_to_alarm = "${var.read_datapoints_to_alarm}"
   comparison_operator = "GreaterThanOrEqualToThreshold"
 
   statistic = "Sum"
@@ -30,6 +31,7 @@ resource "aws_cloudwatch_metric_alarm" "over_write_capacity" {
   namespace           = "AWS/DynamoDB"
   period              = "${var.write_period}"
   evaluation_periods  = "${var.write_evaluation_periods}"
+  datapoints_to_alarm = "${var.write_datapoints_to_alarm}"
   comparison_operator = "GreaterThanOrEqualToThreshold"
 
   statistic = "Sum"
