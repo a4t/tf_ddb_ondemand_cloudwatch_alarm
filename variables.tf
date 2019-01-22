@@ -21,7 +21,7 @@ variable "read_period" {
 }
 
 variable "read_datapoints_to_alarm" {
-  default = 0
+  default = 1
 }
 
 # Write
@@ -36,7 +36,7 @@ variable "write_period" {
 }
 
 variable "write_datapoints_to_alarm" {
-  default = 0
+  default = 1
 }
 
 # GSI
