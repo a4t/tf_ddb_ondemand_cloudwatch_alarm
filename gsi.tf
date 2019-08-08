@@ -13,7 +13,7 @@ resource "aws_cloudwatch_metric_alarm" "over_gsi_read_capacity" {
   period              = "${lookup(var.gsi[count.index], "read_period", 60)}"
   evaluation_periods  = "${lookup(var.gsi[count.index], "read_evaluation_periods", 1)}"
   datapoints_to_alarm = "${lookup(var.gsi[count.index], "read_datapoints_to_alarm", 1)}"
-  comparison_operator = "GreaterThanOrEqualToThreshold"
+  comparison_operator = "GreaterThanThreshold"
 
   statistic = "Sum"
   threshold = "${lookup(var.gsi[count.index], "read_threshold")}"
@@ -36,7 +36,7 @@ resource "aws_cloudwatch_metric_alarm" "over_gsi_write_capacity" {
   period              = "${lookup(var.gsi[count.index], "write_period", 60)}"
   evaluation_periods  = "${lookup(var.gsi[count.index], "write_evaluation_periods", 1)}"
   datapoints_to_alarm = "${lookup(var.gsi[count.index], "write_datapoints_to_alarm", 1)}"
-  comparison_operator = "GreaterThanOrEqualToThreshold"
+  comparison_operator = "GreaterThanThreshold"
 
   statistic = "Sum"
   threshold = "${lookup(var.gsi[count.index], "write_threshold")}"

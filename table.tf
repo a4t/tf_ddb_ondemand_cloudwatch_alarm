@@ -32,7 +32,7 @@ resource "aws_cloudwatch_metric_alarm" "over_write_capacity" {
   period              = "${var.write_period}"
   evaluation_periods  = "${var.write_evaluation_periods}"
   datapoints_to_alarm = "${var.write_datapoints_to_alarm}"
-  comparison_operator = "GreaterThanOrEqualToThreshold"
+  comparison_operator = "GreaterThanThreshold"
 
   statistic = "Sum"
   threshold = "${var.write_threshold}"
